@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="maUI_programacao_visual.Views.Aula04.Exercicio4"
+             Title="Exercicio4">
+    <VerticalStackLayout Padding="30" Spacing="20">
+
+        <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+            <Switch x:Name="SwitchAvancado" Toggled="OnSwitchToggled" />
+            <Label Text="Ativar opções avançadas" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <VerticalStackLayout Spacing="10">
+            <HorizontalStackLayout Spacing="10">
+                <CheckBox x:Name="Check1" IsEnabled="False" />
+                <Label Text="Permitir acesso root" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10">
+                <CheckBox x:Name="Check2" IsEnabled="False" />
+                <Label Text="Habilitar logs detalhados" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10">
+                <CheckBox x:Name="Check3" IsEnabled="False" />
+                <Label Text="Modo de desenvolvedor" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>
