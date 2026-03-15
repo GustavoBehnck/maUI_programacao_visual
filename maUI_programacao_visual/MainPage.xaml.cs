@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using Microsoft.Maui.Controls.Shapes;
+using System.Reflection;
 
 namespace maUI_programacao_visual;
 
@@ -16,15 +17,26 @@ public partial class MainPage : ContentPage
 
         var assembly = Assembly.GetExecutingAssembly();
 
+        string namespaceRaiz = "maUI_programacao_visual.Views";
+        int profundidadeEsperada = namespaceRaiz.Split('.').Length + 1;
+
         var aulasAgrupadas = assembly.GetTypes()
             .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(ContentPage)))
-            .Where(t => t.Namespace != null && t.Namespace.Contains("Views"))
+            .Where(t => t.Namespace != null && t.Namespace.StartsWith(namespaceRaiz))
+            .Where(t => t.Namespace.Split('.').Length == profundidadeEsperada)
             .GroupBy(t => t.Namespace.Split('.').Last())
-            .OrderBy(g => g.Key); 
+            .OrderBy(g => g.Key);
 
         foreach (var aula in aulasAgrupadas)
         {
-            var frame = new Frame { CornerRadius = 10, BorderColor = Colors.Gray, Padding = 15 };
+            var border = new Border
+            {
+                Padding = 15,
+                Stroke = Colors.Gray,
+                StrokeThickness = 1,
+                StrokeShape = new RoundRectangle { CornerRadius = 10 }
+            };
+
             var stackLayout = new VerticalStackLayout { Spacing = 10 };
 
             stackLayout.Children.Add(new Label { Text = aula.Key, FontSize = 22, FontAttributes = FontAttributes.Bold });
@@ -33,7 +45,7 @@ public partial class MainPage : ContentPage
             {
                 var btn = new Button
                 {
-                    Text = pagina.Name, 
+                    Text = pagina.Name,
                     BackgroundColor = Color.FromArgb("#512BD4"),
                     TextColor = Colors.White
                 };
@@ -49,8 +61,8 @@ public partial class MainPage : ContentPage
                 stackLayout.Children.Add(btn);
             }
 
-            frame.Content = stackLayout;
-            ContainerAulas.Children.Add(frame);
+            border.Content = stackLayout;
+            ContainerAulas.Children.Add(border);
         }
     }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="maUI_programacao_visual.Views.Aula04.exercício1.Pagina1"
+             Title="Pagina1">
+    <VerticalStackLayout Padding="30" Spacing="15">
+        <Entry 
+        x:Name="EntryTexto" 
+        Placeholder="Digite algo aqui..." />
+
+        <Button 
+        Text="Enviar para Página 2" 
+        Clicked="OnEnviarClicked" />
+    </VerticalStackLayout>
+</ContentPage>
