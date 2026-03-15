@@ -1,24 +1,56 @@
-﻿namespace maUI_programacao_visual
+﻿using System.Reflection;
+
+namespace maUI_programacao_visual;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    public MainPage()
     {
-        int count = 0;
+        InitializeComponent();
+        GerarMenuDinamicamente();
+    }
 
-        public MainPage()
+    private void GerarMenuDinamicamente()
+    {
+        ContainerAulas.Children.Clear();
+
+        var assembly = Assembly.GetExecutingAssembly();
+
+        var aulasAgrupadas = assembly.GetTypes()
+            .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(ContentPage)))
+            .Where(t => t.Namespace != null && t.Namespace.Contains("Views"))
+            .GroupBy(t => t.Namespace.Split('.').Last())
+            .OrderBy(g => g.Key); 
+
+        foreach (var aula in aulasAgrupadas)
         {
-            InitializeComponent();
-        }
+            var frame = new Frame { CornerRadius = 10, BorderColor = Colors.Gray, Padding = 15 };
+            var stackLayout = new VerticalStackLayout { Spacing = 10 };
 
-        private void OnCounterClicked(object? sender, EventArgs e)
-        {
-            count++;
+            stackLayout.Children.Add(new Label { Text = aula.Key, FontSize = 22, FontAttributes = FontAttributes.Bold });
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+            foreach (var pagina in aula)
+            {
+                var btn = new Button
+                {
+                    Text = pagina.Name, 
+                    BackgroundColor = Color.FromArgb("#512BD4"),
+                    TextColor = Colors.White
+                };
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+                btn.Clicked += async (sender, args) =>
+                {
+                    if (Activator.CreateInstance(pagina) is Page pageInstance)
+                    {
+                        await Navigation.PushAsync(pageInstance);
+                    }
+                };
+
+                stackLayout.Children.Add(btn);
+            }
+
+            frame.Content = stackLayout;
+            ContainerAulas.Children.Add(frame);
         }
     }
 }
