@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="maUI_programacao_visual.Views.Aula04.Exercicio5"
+             Title="Exercicio5">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <VerticalStackLayout x:Name="ContainerNome">
+                <Label Text="Nome Completo:" FontAttributes="Bold" />
+                <Entry x:Name="EntryNome" Placeholder="Digite seu nome" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout x:Name="ContainerGenero">
+                <Label Text="Gênero:" FontAttributes="Bold" />
+                <RadioButton x:Name="RadM" Content="Masculino" GroupName="genero" />
+                <RadioButton x:Name="RadF" Content="Feminino" GroupName="genero" />
+                <RadioButton x:Name="RadO" Content="Outro" GroupName="genero" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout x:Name="ContainerInteresses">
+                <Label Text="Interesses (Selecione ao menos um):" FontAttributes="Bold" />
+                <CheckBox x:Name="CheckTec" />
+                <Label Text="Tecnologia" />
+                <CheckBox x:Name="CheckArt" />
+                <Label Text="Artes" />
+                <CheckBox x:Name="CheckEsp" />
+                <Label Text="Esportes" />
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout Spacing="10">
+                <Switch x:Name="SwitchNews" />
+                <Label Text="Assinar Newsletter?" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Button Text="Confirmar" Clicked="OnConfirmarClicked" Margin="0,20,0,0" />
+
+            <Label x:Name="LabelErro" TextColor="White" BackgroundColor="Red" 
+               Padding="10" IsVisible="False" HorizontalTextAlignment="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

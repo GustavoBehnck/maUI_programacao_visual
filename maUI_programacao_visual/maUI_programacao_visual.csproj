@@ -83,6 +83,9 @@
 	  <MauiXaml Update="Views\Aula04\Exercicio4.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Aula04\Exercicio5.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
