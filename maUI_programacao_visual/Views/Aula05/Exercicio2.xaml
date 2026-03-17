@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="maUI_programacao_visual.Views.Aula05.Exercicio2"
+             Title="Exercicio2">
+    <VerticalStackLayout Padding="30" Spacing="20">
+        <Label Text="Calculadora de Média" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <Label Text="Insira os números separados por vírgula:" />
+        <Editor x:Name="EditorNumeros" 
+            Placeholder="Ex: 10, 20.5, 30, 45" 
+            HeightRequest="100" 
+            AutoSize="TextChanges" />
+
+        <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+            <Label Text="Considerar quantos valores?" VerticalOptions="Center" />
+            <Stepper x:Name="StepperQtde" Minimum="1" Maximum="100" Increment="1" Value="1" 
+                 ValueChanged="OnStepperChanged" />
+            <Label x:Name="LabelQtde" Text="1" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <ProgressBar x:Name="BarraProgresso" Progress="0" ProgressColor="Blue" />
+
+        <Button Text="Calcular Média" Clicked="OnCalcularClicked" />
+
+        <Border>
+            <Label x:Name="LabelResultado" 
+               Text="O resultado aparecerá aqui." 
+               HorizontalTextAlignment="Center" 
+               FontSize="18" />
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
