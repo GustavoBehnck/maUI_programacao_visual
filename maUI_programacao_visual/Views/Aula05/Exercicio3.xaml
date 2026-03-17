@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="maUI_programacao_visual.Views.Aula05.Exercicio3"
+             Title="Exercicio3">
+    <VerticalStackLayout Padding="30" Spacing="15">
+        <Label Text="Simulador de Crescimento" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <Label Text="População Inicial:" />
+        <Editor x:Name="EditorPopInicial" Placeholder="Ex: 1000" Keyboard="Numeric" HeightRequest="50" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Taxa de Crescimento Anual:" />
+            <Label x:Name="LabelTaxa" Text="5%" FontAttributes="Bold" TextColor="Green" />
+        </HorizontalStackLayout>
+        <Slider x:Name="SliderTaxa" Minimum="0" Maximum="20" Value="5" ValueChanged="OnSliderTaxaChanged" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Período (Anos):" />
+            <Label x:Name="LabelAnos" Text="10" FontAttributes="Bold" TextColor="Blue" />
+        </HorizontalStackLayout>
+        <Stepper x:Name="StepperAnos" Minimum="1" Maximum="100" Increment="1" Value="10" ValueChanged="OnStepperAnosChanged" />
+
+        <Label Text="Progresso da Simulação:" Margin="0,10,0,0" />
+        <ProgressBar x:Name="BarraEvolucao" Progress="0" ProgressColor="Orange" />
+
+        <Button Text="Simular Crescimento" Clicked="OnSimularClicked" BackgroundColor="DarkGreen" TextColor="White" />
+
+        <Border>
+            <Label x:Name="LabelResultado" Text="Aguardando simulação..." HorizontalTextAlignment="Center" FontSize="18" />
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
