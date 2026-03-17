@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="maUI_programacao_visual.Views.Aula05.Exercicio1"
+             Title="Exercicio1">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Nome do Usuário:" FontAttributes="Bold" />
+            <Entry x:Name="EntryNome" Placeholder="Ex: João Silva" />
+
+            <Label Text="Observações:" FontAttributes="Bold" />
+            <Editor x:Name="EditorObs" Placeholder="Ex: Pratica musculação 3x na semana" HeightRequest="100" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Altura:" FontAttributes="Bold" />
+                <Label x:Name="LabelAltura" Text="1.60 m" TextColor="Blue" />
+            </HorizontalStackLayout>
+            <Slider x:Name="SliderAltura" 
+                    Minimum="1.00" Maximum="2.20" 
+                    Value="1.60"
+                    ValueChanged="OnAlturaChanged" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Peso:" FontAttributes="Bold" />
+                <Label x:Name="LabelPeso" Text="70.0 kg" TextColor="Blue" />
+            </HorizontalStackLayout>
+            <Stepper x:Name="StepperPeso" 
+                     Minimum="30" Maximum="200" 
+                     Increment="0.5" 
+                     Value="70"
+                     ValueChanged="OnPesoChanged" />
+
+            <Label Text="Nível do IMC:" FontAttributes="Bold" Margin="0,10,0,0"/>
+            <ProgressBar x:Name="ProgressImc" Progress="0" ProgressColor="Green" />
+
+            <Button Text="Calcular IMC" Clicked="OnCalcularClicked" 
+                    BackgroundColor="DarkBlue" TextColor="White" Margin="0,10,0,0" />
+
+            <Frame CornerRadius="10" Margin="0,10,0,0">
+                <Label x:Name="LabelResultado" 
+                       Text="Preencha os dados e clique em calcular." 
+                       HorizontalTextAlignment="Center" FontSize="16" />
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
