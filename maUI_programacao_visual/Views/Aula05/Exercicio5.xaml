@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="maUI_programacao_visual.Views.Aula05.Exercicio5"
+             Title="Exercicio5">
+    <VerticalStackLayout Padding="30" Spacing="15">
+        <Label Text="Simulador de Download" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <Label Text="Nome do Arquivo:" />
+        <Editor x:Name="EditorNome" Placeholder="ex: instalador_windows.iso" HeightRequest="50" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Velocidade de Download:" />
+            <Label x:Name="LabelVelocidade" Text="10 MB/s" FontAttributes="Bold" TextColor="Green" />
+        </HorizontalStackLayout>
+        <Slider x:Name="SliderVelocidade" Minimum="1" Maximum="100" Value="10" 
+            ValueChanged="OnSliderChanged" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Tamanho do Arquivo (MB):" />
+            <Label x:Name="LabelTamanho" Text="500 MB" FontAttributes="Bold" TextColor="Blue" />
+        </HorizontalStackLayout>
+        <Stepper x:Name="StepperTamanho" Minimum="10" Maximum="5000" Increment="50" Value="500" 
+             ValueChanged="OnStepperChanged" />
+
+        <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
+
+        <Label x:Name="LabelStatus" Text="Aguardando início..." HorizontalOptions="Center" />
+        <ProgressBar x:Name="BarraProgresso" Progress="0" ProgressColor="DodgerBlue" HeightRequest="10" />
+
+        <Label x:Name="LabelTempoEstimado" Text="Tempo estimado: --" HorizontalOptions="Center" FontAttributes="Italic" />
+
+        <Button x:Name="BtnDownload" Text="Iniciar Download" Clicked="OnIniciarDownloadClicked" 
+            BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="10" />
+    </VerticalStackLayout>
+</ContentPage>
