@@ -1,0 +1,62 @@
+[
+  {
+    "nome": "Ana Silva",
+    "nascimento": "2000-05-12",
+    "peso": 60.5,
+    "altura": 1.65
+  },
+  {
+    "nome": "Carlos Souza",
+    "nascimento": "1998-11-23",
+    "peso": 78.2,
+    "altura": 1.75
+  },
+  {
+    "nome": "Marina Costa",
+    "nascimento": "2002-03-08",
+    "peso": 55.0,
+    "altura": 1.62
+  },
+  {
+    "nome": "João Pereira",
+    "nascimento": "1995-07-19",
+    "peso": 85.3,
+    "altura": 1.80
+  },
+  {
+    "nome": "Fernanda Lima",
+    "nascimento": "2001-01-30",
+    "peso": 62.7,
+    "altura": 1.68
+  },
+  {
+    "nome": "Lucas Almeida",
+    "nascimento": "1999-09-14",
+    "peso": 70.4,
+    "altura": 1.72
+  },
+  {
+    "nome": "Juliana Rocha",
+    "nascimento": "2003-12-05",
+    "peso": 58.9,
+    "altura": 1.66
+  },
+  {
+    "nome": "Rafael Martins",
+    "nascimento": "1997-06-21",
+    "peso": 82.1,
+    "altura": 1.78
+  },
+  {
+    "nome": "Patrícia Gomes",
+    "nascimento": "2000-10-10",
+    "peso": 64.3,
+    "altura": 1.70
+  },
+  {
+    "nome": "Bruno Ribeiro",
+    "nascimento": "1996-04-02",
+    "peso": 90.0,
+    "altura": 1.82
+  }
+]
